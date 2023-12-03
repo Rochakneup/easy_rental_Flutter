@@ -27,7 +27,7 @@ class welpcenterstate extends State<welpcenter> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => profile()),
+                  MaterialPageRoute(builder: (context) => Profile()),
                 );
               },
               child: Icon(Icons.arrow_back, color: Colors.black, size: 40),

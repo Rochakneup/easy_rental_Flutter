@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rent_easy/contactus.dart';
 import 'package:rent_easy/helpcenter.dart';
+import 'package:rent_easy/profile.dart';
 import 'package:rent_easy/welpcenter.dart';
 
 void main() {
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:welpcenter(),
+      home:Profile(),
     );
   }
 }
