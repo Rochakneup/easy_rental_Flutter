@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rent_easy/contactus.dart';
+import 'package:rent_easy/profile.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class HelpCenter extends StatefulWidget {
@@ -26,7 +27,15 @@ class HelpCenterState extends State<HelpCenter> {
               style: TextStyle(color: Colors.black, fontSize: 28),
             ),
           ),
-          leading: Icon(Icons.arrow_back, color: Colors.black, size: 40),
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => profile()),
+              );
+            },
+            child: Icon(Icons.arrow_back, color: Colors.black, size: 40),
+          ),
           actions: [
             Padding(
               padding: const EdgeInsets.only(right: 10),

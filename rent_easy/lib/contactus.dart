@@ -1,6 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rent_easy/helpcenter.dart';
+import 'package:rent_easy/profile.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class ContactUs extends StatefulWidget {
@@ -11,6 +12,7 @@ class ContactUs extends StatefulWidget {
 }
 
 class ContactUsState extends State<ContactUs> {
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -28,7 +30,7 @@ class ContactUsState extends State<ContactUs> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => HelpCenter()),
+                MaterialPageRoute(builder: (context) => profile()),
               );
             },
             child: Icon(Icons.arrow_back, color: Colors.black, size: 40),
@@ -59,7 +61,9 @@ class ContactUsState extends State<ContactUs> {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => HelpCenter()), // Assuming ContactUs is the correct class name
+                              MaterialPageRoute(
+                                builder: (context) => HelpCenter(),
+                              ),
                             );
                           },
                           child: Padding(
@@ -79,31 +83,31 @@ class ContactUsState extends State<ContactUs> {
                             height: 9,
                             width: size.width / 3,
                             decoration: BoxDecoration(
-                                color: Colors.black,
-                                borderRadius: BorderRadius.circular(50)),
+                              color: Colors.black,
+                              borderRadius: BorderRadius.circular(50),
+                            ),
                           ),
                         ),
                       ],
                     ),
-
-                       Padding(
-                        padding: const EdgeInsets.only(left: 0),
-                        child: Container(
-                          width: size.width / 3,
-                          child: Text(
-                            "Contact Us",
-                            style: TextStyle(fontSize: 25),
-                          ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 0),
+                      child: Container(
+                        width: size.width / 3,
+                        child: Text(
+                          "Contact Us",
+                          style: TextStyle(fontSize: 25),
                         ),
                       ),
-
-
+                    ),
                   ],
                 ),
+
+                // Customer Support with SVG
                 Padding(
                   padding: const EdgeInsets.only(top: 45, right: 0),
                   child: Container(
-                    height: size.height / 12,
+                    height: size.height / 14,
                     width: size.width / 1.4,
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -117,19 +121,88 @@ class ContactUsState extends State<ContactUs> {
                         ),
                       ],
                     ),
-                    child: Column(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+
+                        Padding(
+                          padding: const EdgeInsets.only(top: 7, left: 1),
+                          child: Text(
+                            'Customer Support',
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+
+                // Repeat the same structure for other containers with different text and SVG assets
+
+                // WhatsApp
+                Padding(
+                  padding: const EdgeInsets.only(top: 25, right: 0),
+                  child: Container(
+                    height: size.height / 14,
+                    width: size.width / 1.4,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(50),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.max,
                       children: [
+
+
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 45, right: 0),
+                  child: Container(
+                    height: size.height / 14,
+                    width: size.width / 1.4,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(50),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 80),
-                          child: TextField(
-                            decoration: InputDecoration(
-                              border: InputBorder.none,
-                              hintText: 'Enter Title Here',
-                              contentPadding: EdgeInsets.symmetric(vertical: 20.0),
-                              alignLabelWithHint: true,
+                          padding: const EdgeInsets.only(left: 90),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 0),
+                            child: SvgPicture.asset(
+                              'assets/supportagent.svg',
+                              height: 1,
+                              width: 1,
                             ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 15, left: 40),
+                          child: Text(
+                            'Facebook',
+                            style: TextStyle(fontSize: 18),
                           ),
                         ),
                       ],
@@ -137,65 +210,139 @@ class ContactUsState extends State<ContactUs> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 30,left: 80 ),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Enter Title Here',
-                      contentPadding: EdgeInsets.symmetric(vertical: 20.0),
-                      alignLabelWithHint: true,
+                  padding: const EdgeInsets.only(top: 45, right: 0),
+                  child: Container(
+                    height: size.height / 14,
+                    width: size.width / 1.4,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(50),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 90),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 0),
+                            child: SvgPicture.asset(
+                              'assets/supportagent.svg',
+                              height: 1,
+                              width: 1,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 15, left: 40),
+                          child: Text(
+                            'Instagram',
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top:60,left: 80),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Enter Title Here',
-                      contentPadding: EdgeInsets.symmetric(vertical: 20.0),
-                      alignLabelWithHint: true,
+                  padding: const EdgeInsets.only(top: 45, right: 0),
+                  child: Container(
+                    height: size.height / 14,
+                    width: size.width / 1.4,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(50),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 90),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 0),
+                            child: SvgPicture.asset(
+                              'assets/supportagent.svg',
+                              height: 1,
+                              width: 1,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 15, left: 40),
+                          child: Text(
+                            'Website',
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top:90,left: 80),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Enter Title Here',
-                      contentPadding: EdgeInsets.symmetric(vertical: 20.0),
-                      alignLabelWithHint: true,
+                  padding: const EdgeInsets.only(top: 45, right: 0),
+                  child: Container(
+                    height: size.height / 14,
+                    width: size.width / 1.4,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(50),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: Offset(0, 3),
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 90),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 0),
+                            child: SvgPicture.asset(
+                              'assets/supportagent.svg',
+                              height: 1,
+                              width: 1,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 2, left: 40),
+                          child: Text(
+                            'Twitter',
+                            style: TextStyle(fontSize: 18),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top:120,left: 80),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Enter Title Here',
-                      contentPadding: EdgeInsets.symmetric(vertical: 20.0),
-                      alignLabelWithHint: true,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top:160,left: 80),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Enter Title Here',
-                      contentPadding: EdgeInsets.symmetric(vertical: 20.0),
-                      alignLabelWithHint: true,
-                    ),
-                  ),
-                ),
+
+                // Repeat the same structure for other containers with different text and SVG assets
+
               ],
             ),
           ),
         ),
-       /* bottomNavigationBar: SalomonBottomBar(
+        bottomNavigationBar: SalomonBottomBar(
           currentIndex: _currentIndex,
           onTap: (i) => setState(() => _currentIndex = i),
           items: [
@@ -220,7 +367,7 @@ class ContactUsState extends State<ContactUs> {
               selectedColor: Colors.teal,
             ),
           ],
-        ),*/
+        ),
       ),
     );
   }
